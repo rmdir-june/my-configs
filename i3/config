@@ -196,8 +196,13 @@ hide_edge_borders both
 # custom binds
 # lock
 bindsym $mod+shift+x exec i3lock
-#screenshot
+# screenshot
 bindsym $mod+shift+s exec gnome-screenshot
+# firefox
+bindsym $mod+shift+f exec firefox
+# set language
+bindsym $mod+alt+r exec setxkbmap ru
+bindsym $mod+alt+e exec setxkbmap us
 
 # BG
 exec_always feh --bg-scale ~/Downloads/Pics/Wallpapers/lainagain.jpg
@@ -219,9 +224,8 @@ gaps outer  50
 
 # start up sound
 exec_always pactl set-default-sink 'alsa_output.pci-0000_0b_00.3.analog-stereo'
-exec_always cd ~/.config/i3 && find . -name '*.mp3'|shuf|head -1|xargs mpv --no-video && cd ~
+exec cd ~/.config/i3 && find . -name '*.mp3'|shuf|head -1|xargs cvlc && cd ~
 
-# clock
-# while [ True ]; do ( date +%a\ %d\ %B\ %Y\ %H:%M|parrotsay && sleep 60 && printf "\033c" ) done 
-
+# russianbind
+exec setxkbmap -option grp:alt_shift_toggle us,ru
 
